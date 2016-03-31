@@ -1,0 +1,108 @@
+set shell=/bin/sh
+set mouse=a
+set mousehide
+scriptencoding utf-8
+set clipboard=unnamed,unnamedplus
+set viewoptions=folds,options,cursor,unix,slash
+set virtualedit=onemore
+set history=1000
+set spell
+set hidden
+set iskeyword-=.
+set iskeyword-=#
+set iskeyword-=-
+set tabpagemax=15
+set showmode
+let mapleader = ','
+
+set cursorline
+set backspace=indent,eol,start
+set linespace=0
+set number
+set showmatch
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+set wildmenu
+set wildmode=list:longest,full
+set whichwrap=b,s,h,l,<,>,[,]
+set scrolljump=5
+set scrolloff=3
+set foldenable
+set list
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+set nowrap
+set autoindent
+set shiftwidth=4
+set expandtab
+set tabstop=4
+set softtabstop=4
+set nojoinspaces
+set splitright
+set splitbelow
+set pastetoggle=<F12>
+set t_Co=256
+
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+setglobal fileencoding=utf-8
+
+
+highlight clear SignColumn
+highlight clear LineNr
+
+call vundle#begin()
+
+Bundle "VundleVim/Vundle.vim"
+Bundle "altercation/vim-colors-solarized"
+Bundle "jiangmiao/auto-pairs"
+Bundle "vim-airline/vim-airline"
+Bundle "vim-airline/vim-airline-themes"
+Bundle "powerline/fonts"
+Bundle "Valloric/YouCompleteMe"
+Bundle "scrooloose/syntastic"
+Bundle "easymotion/vim-easymotion"
+Bundle "sjl/gundo.vim"
+Bundle "scrooloose/nerdcommenter"
+
+call vundle#end()
+filetype plugin indent on
+
+"{solarized
+    let g:solarized_termcolors=256
+    let g:solarized_termtrans=1
+    let g:solarized_contrast="normal"
+    let g:solarized_visibility="normal"
+    set background=dark
+    color solarized
+"}
+
+"{airline
+    let g:airline_theme = 'durant'
+    let g:airline#extensions#tabline#enabled = 1
+    set laststatus=2
+    set statusline=%<%f\
+    set statusline+=%w%h%m%r
+    set statusline+=\ [%{&ff}/%Y]
+    set statusline+=\ [%{getcwd()}]
+    set statusline+=%=%-14.(%l,%c%V%)\ %p%%
+    let g:airline_section_b = '%{strftime("%c")}'
+    let g:airline_section_y = "BN: %{bufnr("%")}"
+    let g:airline#extensions#tabline#left_sep = ' '
+    let g:airline#extensions#tabline#left_alt_sep ='|'
+"}
+
+"{easymotion
+    let g:EasyMotion_smartcase = 1
+    map <leader><leader>h <Plug>(easymotion-linebackward)
+    map <leader><leader>j <Plug>(easymotion-j)
+    map <leader><leader>k <Plug>(easymotion-k)
+    map <leader><leader>l <Plug>(easymotion-lineforward)
+    map <leader><leader>. <Plug>(easymotion-repeat)
+"}
+
+"{Gundo
+    nnoremap <F5> :GundoToggle<CR>
+"}
