@@ -1,4 +1,5 @@
 set shell=/bin/sh
+syntax on
 set mouse=a
 set mousehide
 scriptencoding utf-8
