@@ -5,6 +5,7 @@ Tmux
 ----
 
 1. Just copy the .tmux.conf to ~
+2. install tmux.themepack
 
 VIM
 ---
